@@ -1,0 +1,82 @@
+\documentclass{article}
+\usepackage{amsthm,amssymb,mathtools}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{remark}[theorem]{Remark}
+
+\begin{document}
+\section{Cross Norms}
+\begin{notation}
+In this section, $A_1,$ $A_2$ will denote Banach spaces.
+The norms on these spaces will be denoted by $\lVert \cdot \rVert$
+unambiguously as we will distinguish between elements of $A_1$ and $A_2.$
+\end{notation}
+\begin{notation}[]
+For Banach spaces $A_1, A_2,$ we will denote their \emph{algebraic tensor product} by $A_1 \otimes A_2.$
+Its completion in some norm $\lVert \cdot \rVert_\beta$ will be denoted by $A_1 \otimes_\beta A_2.$
+\end{notation}
+\begin{definition}
+	A norm $\lVert \cdot \rVert_c$ on $A_1 \otimes A_2$
+is called a \emph{cross norm} if it satisfies $\lVert x_1 \otimes x_2 \rVert_c = \lVert x_1 \rVert \lVert x_2 \rVert$
+for all $x_1 \in A_1, x_2 \in A_2.$
+\end{definition}
+\begin{remark}
+	That $\lVert \cdot \rVert_\lambda$ is a cross norm is immediate from an application of the Hahn Banach Theorem.
+\end{remark}
+Suppose 
+\begin{definition}
+	The \emph{injective cross norm} $\lVert \cdot \rVert_\lambda$ on $A_1 \otimes A_2$ is defined by
+	$$ \lvert |\xi|| = \sup \{ |\sum_{k=1}^{n} f(x_{1,k}) g(x_{2,k}) \rvert 
+		\colon 
+		\begin{array}{c}
+		\xi = \sum_{k=1}^{n} x_{1,k}\otimes x_{2,k} = \xi, \\
+		f \in A_1^\ast, \lVert f \rVert = 1, \\
+		g \in A_2^\ast, \lVert g \rVert = 1
+	\end{array}
+\}.$$
+\end{definition}
+
+\begin{remark}
+	Let $\lVert \cdot \rVert_\beta$ be a cross norm on $A_1 \otimes A_2.$ 
+	Retaining the notation of the previous definition, 
+	$$ \lvert f(x_1) \rvert \lvert g(x_2) \rvert
+	\leq \lVert x_1 \rVert \lVert x_2 \rVert = \lVert x_1 \otimes x_2 \rVert_\beta.$$
+\end{remark}
+So, the injective cross norm is the smallest cross norm on $A_1 \otimes A_2.$
+
+\begin{definition}
+	The \emph{projective cross norm} on $A_1 \otimes A_2$ is denoted by 
+	$\lVert \cdot \rVert_\gamma$ and defined as
+	$$\lVert \xi \rVert = \inf \{ \sum_{k=1}^{n} \lVert x_{1,k} \rVert \lVert x_{2,k} \rVert
+	\colon \xi = \sum_{k=1}^{n} x_{1,k} \otimes x_{2,k} \}.$$
+\end{definition}
+
+\begin{remark}
+	Let $\lVert \cdot \rVert_\beta$ be a cross norm on $A_1 \otimes A_2.$ 
+	For $\xi$ in $A_1 \otimes A_2,$ and $\epsilon>0,$ there exists a representation
+	$\xi = \sum_{k=1}^{n} x_{1,k} \otimes x_{2,k}$ in $A_1 \otimes A_2,$ such that
+	\[
+		\lVert \xi \rVert_\beta \leq
+		\sum_{k=1}^{n} \lVert x_{1,k} \otimes x_{2,k} \rVert_\beta
+		= \sum_{k=1}^{n} \lVert x_{1,k} \rVert \lVert x_{2,k} \rVert
+		\leq \lVert \xi \rVert_\gamma + \epsilon.
+	\]
+\end{remark}
+So, the projective norm majorises all cross norms. 
+That it is itself a cross norm is evident from the computation
+$$ \lVert x_1 \rVert \lVert x_2 \rVert = 
+\lVert x_1 \otimes x_2 \rVert_\gamma \leq \lVert x_1 \otimes x_2 \rVert_\lambda \leq \lvert x_1 \rvert \lVert x_2 \rVert.$$
+The same computation reveals that all norms `between' the two norms are cross norms.
+projective norm
+
+Observations
+\begin{enumerate}
+	\item The injective cross norm is indeed a cross norm on $A_1 \otimes A_2.$
+\end{enumerate}
+tensor products of ucp maps
+functoriality
+and universal property
+\end{document}
+
