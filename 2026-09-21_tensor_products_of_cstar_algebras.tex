@@ -1,10 +1,13 @@
 \documentclass{article}
-\usepackage{amsthm,amssymb,mathtools}
+\usepackage{amsthm,amssymb,mathtools,amsmath}
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{notation}[theorem]{Notation}
 \newtheorem{remark}[theorem]{Remark}
+
+%\DeclareMathOperator*{\max}{max}
+%\DeclareMathOperator*{\min}{min}
 
 \begin{document}
 \section{Cross Norms}
@@ -67,16 +70,87 @@ So, the injective cross norm is the smallest cross norm on $A_1 \otimes A_2.$
 So, the projective norm majorises all cross norms. 
 That it is itself a cross norm is evident from the computation
 $$ \lVert x_1 \rVert \lVert x_2 \rVert = 
-\lVert x_1 \otimes x_2 \rVert_\gamma \leq \lVert x_1 \otimes x_2 \rVert_\lambda \leq \lvert x_1 \rvert \lVert x_2 \rVert.$$
+\lVert x_1 \otimes x_2 \rVert_\gamma \leq \lVert x_1 \otimes x_2 \rVert_\lambda \leq \lVert x_1 \rVert \lVert x_2 \rVert.$$
 The same computation reveals that all norms `between' the two norms are cross norms.
 projective norm
 
-Observations
-\begin{enumerate}
-	\item The injective cross norm is indeed a cross norm on $A_1 \otimes A_2.$
-\end{enumerate}
+\subsection{$C^\ast$ cross-norms}
+In general, the projective cross\nobreakdash-norm is not a $C^\ast$~norm \cite[Remark 4.4]{Pisier_2020}.
+So we consider 
+\begin{definition}
+	The maximal $\text{C}^\ast$ norm defined by
+	\[
+		\lVert x \rVert_{\max} = \sup \{
+		\lVert \pi(x) \rVert \colon \pi \text{ is a representation of } A_1 \otimes A_2 \}
+	\]
+
+\end{definition}
+The max norm is a cross norm.
+\begin{remark}
+	For $\xi = \sum_{k=1}^{n} x_{1,k} \otimes x_{2,k},$ in $A_1 \otimes A_2,$ we have
+	$$ \lVert \pi(\xi) \rVert
+	= \lVert \sum_{k=1}^{n} \pi(x_{1,k} \otimes x_{2,k}) \rVert
+	\leq \sum_{k=1}^{n} \lVert \pi(x_{1,k} \otimes x_{2,k}) \rVert
+	\leq \sum_{k=1}^{n} \lVert x_{1,k} \otimes x_{2,k} \rVert .$$
+	This shows that $\lVert x \rVert_{\max} \leq \left\lVert x \right\rVert_\gamma.$
+
+	In addition, for any representation $\pi_1$ of $A_1$ and $\pi_2$ of $A_2,$ we have 
+	\begin{flalign*}
+		\lVert \pi_1(x_1) \rVert \lVert \pi_2(x_2) \rVert 
+		=\lVert \pi_1(x_1) \pi_2(x_2)\rVert
+		= \lVert (\pi_1 \otimes \pi_2) (x_1 \otimes x_2) \rVert \\
+		\leq \lVert x_1 \otimes x_2 \rVert_{\max} 
+		\leq \lVert x_1 \otimes x_2 \rVert_\gamma
+		\leq \lVert x_1 \rVert \lVert x_2 \rVert.
+	\end{flalign*}
+	By choosing faithful representations $\pi_1$ and $\pi_2,$ the left hand side and right hand side become equal.
+\end{remark}
+
+\begin{definition}
+	The minimal $C^\ast$~cross\nobreakdash-norm $\lVert \cdot \rVert_{\min}$ is defined by
+$$\lVert \xi \rVert_{\min} 
+= \sup\{ \lVert (\pi_1 \otimes \pi_2) (\xi) \rVert \colon 
+\begin{array}{c}
+\pi_1 \text{ is a representation of } A_1, \\
+\pi_2 \text{ is a representation of } A_2 
+\end{array}
+\} .$$
+\end{definition}
+It is immediate that $\lVert \cdot \rVert_{\min} \leq \lVert \cdot \rVert_{\max} \leq 
+\lVert \cdot \rVert_\gamma.$ 
+\begin{remark}
+	To see that $\lVert \cdot \rVert_{\min}$ is a cross norm, we only need to show that $\lVert \cdot \rVert_{\Lambda}
+	\leq \lVert \cdot \rVert_{\min}.$
+	For $f$ in $A_1^\ast,$ there exist a representation $\pi_i$ of $A_1$ on a Hilbert Space $\mathcal{H}_1 $ and $\xi_1, \eta_1$
+	in $\mathcal{H}_1$ satisfying $\lVert f \rVert = \lVert \xi_1 \rVert \lVert \eta_1 \rVert$ and
+	$f(a) = \langle\eta_1, \pi_1(a) \xi_1\rangle$ for all $a$ in $A_1.$ Similarly, for $g$ in $A_2^\ast,$ there exist a representation
+	$\pi_2$ of $A_2$ on a Hilbert space $\mathcal{H}_2$ and $\xi_2, \eta_2$ in $\mathcal{H}_2$ such that
+	$g(b) = \langle \eta_2, \pi_2(b) \xi_2 \rangle$ for all $b$ in $A_2$ and $\lVert g \rVert = \lVert \xi_2 \rVert \lVert \eta_2 \rVert.$ This means for $x = \sum_{k=1}^{n} x_{1,k} \otimes x_{2,k}$ in $A_1 \otimes A_2,$ we have
+	\begin{align*}
+		{}& \lvert (f \otimes g) x \rvert \\
+		={}&  \lvert \sum_{n=1}^{k} f(x_{1,k}) g(x_{2,k}) \rvert \\
+		\leq{}&  \lvert \sum_{n=1}^{k} f(x_{1,k}) g(x_{2,k}) \rvert \\
+		\leq{}&  \lvert \sum_{k=1}^{n} \langle\eta_1, \pi_1(x_{1,k}) \xi_1\rangle \rvert
+		\lvert \langle\xi, \pi_2(x_{2,k}) \xi_2\rangle \rvert \\
+		={}& \lvert \sum_{k=1}^{n} \langle\eta_1, \pi_1(x_{1,k}) \xi_1\rangle 
+		\langle\xi, \pi_2(x_{2,k}) \xi_2\rangle \rvert \\
+		={}& \lvert \sum_{n=1}^{k} \langle \eta_1 \otimes \eta_2, (\pi_1 \otimes \pi_2) (x_{1,k} \otimes x_{2,k}) (\xi_1 \otimes \xi_2) \rangle \rvert \\
+		={}&  \lvert \langle \eta_1 \otimes \eta_2, (\pi_1 \otimes \pi_2) ( x) (\xi_1 \otimes \xi_2)\rangle \rvert \\
+		\leq{}& \lVert \eta_1 \rVert \lVert \eta_2 \rVert \lVert (\pi_1 \otimes \pi_2)(x) \rVert
+		\lVert \xi_1 \rVert \lVert \xi_2 \rVert \\
+		={}& \lVert f \rVert \lVert g \rVert \lVert x \rVert_{\min}
+	\end{align*}
+	In other words, $\lVert x \rVert_\gamma \leq \lVert x \rVert_{\min}.$
+\end{remark}
+Thus, $\lVert \cdot \rVert_{\min}$ is a $C^\ast$ norm.
+
+
 tensor products of ucp maps
 functoriality
 and universal property
+
+\bibliographystyle{plain}
+\bibliography{../notes/my_refs}
+
 \end{document}
 
