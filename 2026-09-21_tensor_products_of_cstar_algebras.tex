@@ -78,6 +78,26 @@ The same computation reveals that all norms `between' the two norms are cross no
 projective norm
 
 \subsection{$C^\ast$ cross-norms}
+The $C^\ast$ norms on $A_1 \otimes A_2$ can always be extended to unitisations.
+\begin{theorem}
+    Let $A_1$ and $A_2$ be $\text{C}^\ast$\nobreakdash-algebras with a $C^\ast$ norm $\lVert \cdot \rVert_\beta$ on 
+    $A_1 \otimes A_2.$ There exists a $\text{C}^\ast$ norm $\lVert \cdot \rVert_{\beta_0}$ on $(A_1)_I \otimes (A_2)_I$
+    which extends $\lVert \cdot \rVert_{\beta}.$
+\end{theorem}
+\begin{proof}
+	Let $\pi$ be a faithful represntation of $A_1 \otimes_\beta A_2.$ Then there exist representations
+	$\pi_i$ of $A_i$ on the same Hilbert Space $\mathcal{H}$ satisfying
+	\[
+		\pi(x_1 \otimes x_2) = \pi_1(x_1) \pi_2(x_2) = \pi(x_2) \pi_1(x_1)
+	\]
+	for all $x_1$ in $A_1,$ all $x_2$ in $A_2$ and
+	$\pi_1(x_1) = \lim_{\lambda} \pi(x_1 \otimes u_{\lambda})$ for an approximate uni $\{ u_{\lambda} \}$ of $A_1.$
+	Since $\pi$ is faithful, $\lVert  x_1 \otimes x_2 \rVert_{\beta} = \lVert \pi(x_1 \otimes x_2) \rVert.$
+	Define $\pi_i^0 (x, \lambda) = \pi_i(x_i) + \lambda$ on $(A_i)_I.$ Since the ranges of $\pi_1^0$ and $\pi_2^0$ 
+	commute with each other, $\pi_0(x_1 \otimes x_2) = \pi_1^0(x_1) \pi_2^0(x_2)$ defines a valid representation
+	of $(A_1)_I \otimes (A_2)_I.$ Define $\lVert x \rVert_{\beta_0} = \lVert \pi_0(x) \rVert.$
+	This norm extends $\lVert \cdot \rVert_{\beta}.$
+\end{proof}
 In general, the projective cross\nobreakdash-norm is not a $C^\ast$~norm \cite[Remark 4.4]{Pisier_2020}.
 So we consider 
 \begin{definition}
@@ -122,7 +142,7 @@ $$\lVert \xi \rVert_{\min}
 It is immediate that $\lVert \cdot \rVert_{\min} \leq \lVert \cdot \rVert_{\max} \leq 
 \lVert \cdot \rVert_\gamma.$ 
 \begin{remark}
-	To see that $\lVert \cdot \rVert_{\min}$ is a cross norm, we only need to show that $\lVert \cdot \rVert_{\Lambda}
+	To see that $\lVert \cdot \rVert_{\min}$ is a cross norm, we only need to show that $\lVert \cdot \rVert_{\lambda}
 	\leq \lVert \cdot \rVert_{\min}.$
 	For $f$ in $A_1^\ast,$ there exist a representation $\pi_i$ of $A_1$ on a Hilbert Space $\mathcal{H}_1 $ and $\xi_1, \eta_1$
 	in $\mathcal{H}_1$ satisfying $\lVert f \rVert = \lVert \xi_1 \rVert \lVert \eta_1 \rVert$ and
@@ -163,7 +183,7 @@ Thus, $\lVert \cdot \rVert_{\min}$ is a cross norm.
 		{}& (\pi_1(x_{1,k}) \otimes \pi_2(x_{2,k})) (\pi_1(y_{1,l}) \otimes \pi_2(y_{2,l})) \\
 		={}& \pi_1(x_{1,k}) \pi_2(_{2,k}) \pi_1(y_{1,l}) \pi_2(y_{2,l}) \\
 		={}& \pi_1(x_{1,k}) \pi_1(y_{1,l}) \pi_2(_{2,k}) \pi_2(y_{2,l}) \\
-		={}& \pi_1(x_{1,k} y_{1,l}) \pi_2(x_{2,k} y_{2,l}),
+		={}& \pi_1(x_{1k} y_{1,l}) \pi_2(x_{2,k} y_{2,l}),
 	\end{align*}
 	for every $k$ in $\{1,2,\dotsc, n\}$ and $l$ in $\{1, 2, \dotsc, m\}.$
 	Taking linear combinations over $k,l$ we get
@@ -191,14 +211,14 @@ with $\pi$ on the completion because they agree on a dense subset.
     and induces the representation $(\pi, \mathcal{H}, \xi)$ which is the tensor product of the representations
     $(\pi_1, \mathcal{H}_1, \xi_1)$ and $(\pi_2, \mathcal{H}_2, \xi_2).$
 \item $$\lVert x \rVert_{\min} = 
-	\sup\{ \frac{(\omega_1 \otimes \omega_2) (a^\ast x^\ast x a)^{1/2} }
+	\sup \left\{ \frac{(\omega_1 \otimes \omega_2) (a^\ast x^\ast x a)^{1/2} }
 		{ (\omega_1 \otimes \omega_2)(a^\ast a)^{1/2} } 
 \begin{array}{c}
 	\colon \omega_1 \in (A_1^\ast)_+, \\
 	\omega_2 \in (A_2^\ast)_+ ,\\
-	a \in A_min 
+	a \in A_{\min}
 \end{array}
-\} $$
+\right\} $$
 \end{enumerate}
 \end{theorem}
 
@@ -245,9 +265,8 @@ Replacing $\pi_1,$ respectively $\pi_2$ with $\omega_1, \in (A_1^\ast)_+,$ respe
 \end{align*}
 
 \end{proof}
-tensor products of ucp maps
-functoriality
-and universal property
+% tensor products of ucp maps
+% functoriality and universal property
 
 \bibliographystyle{plain}
 \bibliography{../notes/my_refs}
