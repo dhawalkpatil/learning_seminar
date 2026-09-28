@@ -44,12 +44,18 @@ for all $x_1 \in A_1, x_2 \in A_2.$
 \end{remark}
 
 \begin{remark}
-	Let $\lVert \cdot \rVert_\beta$ be a cross norm on $A_1 \otimes A_2.$ 
-	Retaining the notation of the previous definition, 
-	$$ \lvert f(x_1) \rvert \lvert g(x_2) \rvert
-	\leq \lVert x_1 \rVert \lVert x_2 \rVert = \lVert x_1 \otimes x_2 \rVert_\beta.$$
+	Suppose a norm $\lVert \cdot \rVert_{\beta}$ satisfies $\lVert f \otimes g \rVert_{\beta^\ast}
+	\leq \lVert f \rVert \lVert g \rVert,$ then we also have
+$$ \lvert \sum_{j=1}^{m} f(x_{1,j}) g(x_{2,j}) \rvert \leq \lVert f \otimes g  \rVert_{\beta^\ast}
+\lVert \sum_{j=1}^{m} x_{1,k} \otimes x_{2,j} \rVert_{\beta} \leq 
+\lVert \sum_{j=1}^{m} x_{1,k} \otimes x_{2,j} \rVert_{\beta}$$
+for $f$ in $A_1^\ast$ with $\lVert f \rVert \leq 1$ and $g \in A_2^\ast$ with $\lVert g \rVert \leq 1.$
 \end{remark}
-So, the injective cross norm is the smallest cross norm on $A_1 \otimes A_2.$
+\begin{remark}
+	As per the definitions in \cite{Kubrusly2023}, all cross norms satisfy this condition so
+	$\lVert \cdot \rVert_{\beta}$ is a cross norm if and only if $\lvert \cdot \rvert_{\lambda}
+	\leq \lVert \cdot \rVert_{\beta} \leq \lVert \cdot \rVert_{ \gamma}.$
+\end{remark}
 
 \begin{definition}
 	The \emph{projective cross norm} on $A_1 \otimes A_2$ is denoted by 
@@ -151,9 +157,8 @@ It is immediate that $\lVert \cdot \rVert_{\min} \leq \lVert \cdot \rVert_{\max}
 	\begin{align*}
 		{}& \lvert (f \otimes g) x \rvert \\
 		={}&  \lvert \sum_{n=1}^{k} f(x_{1,k}) g(x_{2,k}) \rvert \\
-		\leq{}&  \lvert \sum_{n=1}^{k} f(x_{1,k}) g(x_{2,k}) \rvert \\
-		\leq{}&  \lvert \sum_{k=1}^{n} \langle\eta_1, \pi_1(x_{1,k}) \xi_1\rangle \rvert
-		\lvert \langle\xi, \pi_2(x_{2,k}) \xi_2\rangle \rvert \\
+		={}&  \lvert \sum_{k=1}^{n} \langle\eta_1, \pi_1(x_{1,k}) \xi_1\rangle 
+		\langle\xi, \pi_2(x_{2,k}) \xi_2\rangle \rvert \\
 		={}& \lvert \sum_{k=1}^{n} \langle\eta_1, \pi_1(x_{1,k}) \xi_1\rangle 
 		\langle\xi, \pi_2(x_{2,k}) \xi_2\rangle \rvert \\
 		={}& \lvert \sum_{n=1}^{k} \langle \eta_1 \otimes \eta_2, (\pi_1 \otimes \pi_2) (x_{1,k} \otimes x_{2,k}) (\xi_1 \otimes \xi_2) \rangle \rvert \\
@@ -179,10 +184,12 @@ Thus, $\lVert \cdot \rVert_{\min}$ is a cross norm.
 	For $x = \sum_{k=1}^{n} x_{1,k} \otimes x_{2,k}$ and $y = \sum_{l=1}^{m} y_{1,l} \otimes y_{2,l}$
 	in $A_1 \otimes A_2,$ we have
 	\begin{align*}
-		{}& (\pi_1(x_{1,k}) \otimes \pi_2(x_{2,k})) (\pi_1(y_{1,l}) \otimes \pi_2(y_{2,l})) \\
+		{}& \pi(x_{1,k} \otimes x_{2,k}) \pi(y_{1,l} \otimes y_{2,l}) \\
 		={}& \pi_1(x_{1,k}) \pi_2(_{2,k}) \pi_1(y_{1,l}) \pi_2(y_{2,l}) \\
 		={}& \pi_1(x_{1,k}) \pi_1(y_{1,l}) \pi_2(_{2,k}) \pi_2(y_{2,l}) \\
-		={}& \pi_1(x_{1k} y_{1,l}) \pi_2(x_{2,k} y_{2,l}),
+		={}& \pi_1(x_{1,k} y_{1,l}) \pi_2(x_{2,k} y_{2,l}) \\
+		={}& \pi(x_{1,k} y_{2,l} \otimes x_{2,k} y_{2,l} ) \\
+		={}& \pi( (x_{1,k} \otimes x_{2,k}) ( y_{1,l} \otimes _{2,l} ))
 	\end{align*}
 	for every $k$ in $\{1,2,\dotsc, n\}$ and $l$ in $\{1, 2, \dotsc, m\}.$
 	Taking linear combinations over $k,l$ we get
@@ -263,6 +270,23 @@ Replacing $\pi_1,$ respectively $\pi_2$ with $\omega_1, \in (A_1^\ast)_+,$ respe
 	{(\omega_1 \otimes \omega_2)(x^\ast x)} \colon a \in A_1 \otimes A_2 \}
 \end{align*}
 
+\end{proof}
+
+\begin{theorem}
+	Given $\text{C}^\ast$\nobreakdash-algebras $A_1,$ and $A_2,$ the linear functional $\omega$ on $A_1 \otimes _{\min} A_2$ is a state if and only if $\Phi_1'(\omega) \colon A_1 \to A_2^\ast$ is completely positive and $\Phi_1'(1) = 1$
+\end{theorem}
+\begin{proof}
+	Say $\omega$ is in $(A_1 \otimes_{\min} A_2)^\ast$ is a state. Now we want to pick an arbitrary positive integer $n,$ and show that
+	$\Phi_1'(\omega)^{(n)}$ is positive. To show this, we take an arbitrary positive element in $A_1^{(n)}$ and show that
+	it is mapped to a positive element. Positive elements in $A_1^{(n)}$ are convex combinations of
+	elements of the form $[x_i^\ast x_j]$ with $x_1, \dotsc, x_n$ in $A_1.$ 
+		So, we want to show that 
+	$\Phi_1'(\omega)^{(n)} ([x_i^\ast x_j]) = [\Phi_1'(\omega)(x_i^\ast x_j)]$ is a positive element in
+	$(A_2^\ast)^{(n)}.$  Let us call it $\Gamma.$ So there is a representation $(\pi, \mathcal{H})$ 
+	and vectors $\xi, \eta$ in $\mathcal{H}$ such that
+	\[
+		\Gamma( (y_j) ) = \langle\eta, \pi((y_j)) \xi \rangle.
+	\]
 \end{proof}
 % tensor products of ucp maps
 % functoriality and universal property
