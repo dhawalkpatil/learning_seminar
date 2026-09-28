@@ -427,8 +427,22 @@ We now move on to prove that the injective cstar cross norm agrees with
 all cstar norms if one of the factors is abelian.
 
 \begin{lemma}\label{lem:s_beta_unitarily_invariant}
-	j
+	Let $(\omega_1 \otimes \omega_2)$ be in $S_\beta,$ 
+	$u,$ respectively $v,$ be a unitary in $A_1,$ respectively $A_2.$
+	Then $(u^\ast \omega_1 u \otimes v^\ast \omega_2 v)$ is also in $S_\beta.$
 \end{lemma}
+\begin{proof}
+	Let $x$ be in $A_1 \otimes A_2.$
+	Then we have
+\begin{align*}
+	{}& \lvert (u^\ast \omega_1 u \otimes v^\ast \omega_2 v) (x) \rvert \\
+	={}& \lvert (\omega_1 \otimes \omega_2) ((u \otimes v) x (u^\ast \otimes v^\ast)) \rvert \\
+	={}& \lVert (\omega_1 \otimes \omega_2) \rVert_{\beta^\ast} 
+	\lVert ((u \otimes v) x (u^\ast \otimes v^\ast)) \rVert_{\beta} \\
+	={}& 1 \lVert x \rVert_{\beta}
+\end{align*}
+because $\lVert \omega_1 \otimes \omega_2 \rVert_{\beta\ast} = (\omega_1\otimes \omega_2)(1) = 1.$
+\end{proof}
 
 \begin{theorem}
     Let $A_2$ be abelian. Then $\beta = \lambda.$
