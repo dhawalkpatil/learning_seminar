@@ -268,7 +268,17 @@ Replacing $\pi_1,$ respectively $\pi_2$ with $\omega_1, \in (A_1^\ast)_+,$ respe
 
 
 \section{Takesaki's Theorem}
-\subsection{States on $A_1 \otimes A_2$}
+
+We will start this section with a lemma about product states, and 
+consider a subset $S_\beta$ of the continuous product pure states.
+Then we will prove that the injective cross norm and the injective
+cstar norm coincide if one of the factors is abelian. This proof makes
+use of an identification of $A_1 \otimes A_2$ with a subspace
+of the continuous $A_1$ valued functions on the character space of $A_2.$
+This theorem will be useful in proving that the all cstar norms are
+equal if one of the factors is abelian. Finally we will show that
+the injective cstar norm is the minimal cstar norm, hence all
+cstar norms are cross norms.
 
 \begin{proposition}
 	If $\omega_1$ is a positive linear functional on $A_1$, and 
@@ -403,6 +413,75 @@ Then
 	={}& \lVert (\pi_1 \otimes \oplus_{\omega \in \Omega} \pi_{\omega} )
 	(\sum_{i=1}^{n} x_{1,i} \otimes x_{2,i} \rVert \\
 	={}& \lVert x \rVert_{\min}.
+\end{align*}
+\end{proof}
+
+We now move on to prove that the injective cstar cross norm agrees with
+all cstar norms if one of the factors is abelian.
+
+\begin{lemma}\label{lem:s_beta_unitarily_invariant}
+	j
+\end{lemma}
+
+\begin{theorem}
+    Let $A_2$ be abelian. Then $\beta = \lambda.$
+\end{theorem}
+\begin{proof}
+	Suppose $\omega$ is in $P(A_{\beta}).$ Then $\omega$
+	is of the form $\omega = \omega_1 \otimes \omega_2.$
+	Then, 
+\begin{align*}
+	{}& \lVert x \rVert_{\beta} \\
+	={}& \sup \{ \lvert \omega(x) \rvert \colon \omega \in P(A_{\beta}) \} \\
+	={}& \sup \{ \lvert \omega_1 \otimes \omega_2 (x) \rvert 
+	\colon \omega_1 \in  P(A_1)\, \omega_2 \in P(A_2) \} \\
+	={}& \sup \{ \lVert \pi_{\omega_1} \otimes \pi_{\omega_2} (x) \rVert
+		\colon \omega_1 \in P(A_1)\, \omega_2 \in P(A_2) \} \\
+	\leq{}& \sup\{ \lVert \pi_1 \otimes \pi_2 (x) \rVert \colon 
+	\begin{array}{c}
+		\pi_1 \text{ is some representation of } A_1 \\ 
+		\pi_2 \text{ is some representation of } A_2
+	\end{array} \} \\
+	={}& \lVert x \rVert_{\min} .
+\end{align*}
+	Now we will prove that $S_{\beta}$ is all of $P(A_1) \times P(A_2).$
+	Towards contradiction, suppose this is not the case. Then there are
+	open sets $U_1,$ repsectively $U_2$ of $P(A_1),$ respectively $P(A_2)$
+such that $U_1 \times U_2$ does not intersect $S_{\beta}.$ Replacing
+$U_1$ by
+\[
+	\bigcup_{u \in \mathcal{U}(A_1)} u U_1 u^\ast
+\]
+and
+$U_2$ by
+\[
+	\bigcup_{v \in \mathcal{U}(A_1)}  vU_2 v^\ast,
+\]
+we get that $U_1$ and $U_2$ are unitarily invariant and their product still
+does not intersect $S_{\beta},$ by Lemma~\ref{lem:s_beta_unitarily_invariant}. This means
+$K_1 = U_1^c$ and $K_2 = U_2^c$ are closed subsets of $P(A_1)$ and $P(A_2)$
+which satisfy $S_{\beta} \subseteq K_1 \times  P(A_2) \cup P(A_1) \times K_2.$
+Since $K_1$ is closed,
+\[
+	I_{K_1} = \{ x_1 \in A_1 \colon \omega (x_1) = 0 \text{ for all }
+	\omega \in K_1 \}
+\]
+is a closed ideal of $A_1.$ This is due to \cite[Theorem 4.15]{takesaki79}. This means there exists a nonzero positive element
+$y_1$ in $I_{K_1}$ such that $\omega_1(y_1) = 0$ for all $\omega_1$ in $K_1.$
+Similarly, there exist a nonzero $y_2$ with the corresponding property.
+So $(\omega_1 \otimes \omega_2)(y_1 \otimes y_2) = 0$ for all $\omega_1 \otimes
+\omega_2$ in $P(A_{\beta}).$ Since all pure states in $P(A_{\beta})$ are of this 
+form, this owuld mean $y_1 \otimes y_2 = 0.$
+So, for $x$ in $A_1 \otimes A_2,$ we have
+\begin{align*}
+	\lVert x \rVert_{\lambda}
+	={}& \lVert x \rVert_{\min}  \\
+	={}& \sup\{ \lVert (\pi_1 \otimes \pi_2)(x) \rVert
+		\colon \begin{array}{c}
+		\pi_1 \text{ is some irreducible representation of } A_1 \\ 
+		\pi_2 \text{ is some irreducible  representation of } A_2
+	\end{array} \} \\
+		\leq{}& \lVert x \rVert_{\beta}.
 \end{align*}
 \end{proof}
 
