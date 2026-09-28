@@ -84,7 +84,7 @@ $$ \lVert x_1 \rVert \lVert x_2 \rVert =
 The same computation reveals that all norms `between' the two norms are cross norms.
 projective norm
 
-\subsection{$C^\ast$ cross-norms}
+\section{$C^\ast$ cross-norms}
 The $C^\ast$ norms on $A_1 \otimes A_2$ can always be extended to unitisations.
 \begin{theorem}
     Let $A_1$ and $A_2$ be $\text{C}^\ast$\nobreakdash-algebras with a $C^\ast$ norm $\lVert \cdot \rVert_\beta$ on 
@@ -325,6 +325,24 @@ This means
 
 \end{proof}
 
+<<<<<<< HEAD
+\begin{theorem}
+	Given $\text{C}^\ast$\nobreakdash-algebras $A_1,$ and $A_2,$ the linear functional $\omega$ on $A_1 \otimes _{\min} A_2$ is a state if and only if $\Phi_1'(\omega) \colon A_1 \to A_2^\ast$ is completely positive and $\Phi_1'(1) = 1$
+\end{theorem}
+\begin{proof}
+	Say $\omega$ is in $(A_1 \otimes_{\min} A_2)^\ast$ is a state. Now we want to pick an arbitrary positive integer $n,$ and show that
+	$\Phi_1'(\omega)^{(n)}$ is positive. To show this, we take an arbitrary positive element in $A_1^{(n)}$ and show that
+	it is mapped to a positive element. Positive elements in $A_1^{(n)}$ are convex combinations of
+	elements of the form $[x_i^\ast x_j]$ with $x_1, \dotsc, x_n$ in $A_1.$ 
+		So, we want to show that 
+	$\Phi_1'(\omega)^{(n)} ([x_i^\ast x_j]) = [\Phi_1'(\omega)(x_i^\ast x_j)]$ is a positive element in
+	$(A_2^\ast)^{(n)}.$  Let us call it $\Gamma.$ So there is a representation $(\pi, \mathcal{H})$ 
+	and vectors $\xi, \eta$ in $\mathcal{H}$ such that
+	\[
+		\Gamma( (y_j) ) = \langle\eta, \pi((y_j)) \xi \rangle.
+	\]
+\end{proof}
+=======
 \begin{notation}
 	The set of all Pure states on $A_1$ is denoted by $P(A_1).$
 \end{notation}
@@ -509,6 +527,7 @@ So, for $x$ in $A_1 \otimes A_2,$ we have
 
 Multiplication is well defined.
 
+>>>>>>> refs/remotes/origin/main
 % tensor products of ucp maps
 % functoriality and universal property
 
