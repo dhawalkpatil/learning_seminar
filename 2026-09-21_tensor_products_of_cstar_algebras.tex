@@ -3,6 +3,8 @@
 
 \theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
 \newtheorem{notation}[theorem]{Notation}
@@ -76,7 +78,7 @@ $$ \lVert x_1 \rVert \lVert x_2 \rVert =
 The same computation reveals that all norms `between' the two norms are cross norms.
 projective norm
 
-\subsection{$C^\ast$ cross-norms}
+\section{$C^\ast$ cross-norms}
 The $C^\ast$ norms on $A_1 \otimes A_2$ can always be extended to unitisations.
 \begin{theorem}
     Let $A_1$ and $A_2$ be $\text{C}^\ast$\nobreakdash-algebras with a $C^\ast$ norm $\lVert \cdot \rVert_\beta$ on 
@@ -166,7 +168,7 @@ It is immediate that $\lVert \cdot \rVert_{\min} \leq \lVert \cdot \rVert_{\max}
 \end{remark}
 Thus, $\lVert \cdot \rVert_{\min}$ is a cross norm.
 
-\subsection{Universal Property}
+\section{Universal Property}
 \begin{theorem}
     For representations $\pi_1,$ respectively $\pi_2,$ of $A_1,$ respectively $A_2,$ onto a Hilbert Space $\mathcal{H}$
     such that the images of $\pi_1$ and $\pi_2$ commute, there exists a unique representation $\pi$ of $A_1 \otimes_{\max}
@@ -202,7 +204,7 @@ with $\pi$ on the completion because they agree on a dense subset.
 
 
 \begin{theorem}
-    Let $A_1, A_2$ be $\text{C}^\ast$\nobreakdash-algebras and  Denote $A_1 \otimes_{\min} A_2$ by $A_{\min}$ and $A_1 \otimes_{\max} A_2$
+    Let $A_1, A_2$ be $\text{C}^\ast$\nobreakdash-algebras and denote $A_1 \otimes_{\min} A_2$ by $A_{\min}$ and $A_1 \otimes_{\max} A_2$
     by $A_{\max}.$ Then 
 \begin{enumerate}
 	\item If $\omega_1 \in (A_1^\ast)_+,$ and
@@ -230,7 +232,7 @@ with $\pi$ on the completion because they agree on a dense subset.
 	={}& \omega_1(x_1) \omega_2(x_2) \\
 	={}& (\omega_1 \otimes \omega_2) (x_1 \otimes x_2) .
 \end{align*}
-Taking finite linear combinations, we get that $\omega(x) = \langle \xi, \pi(x) \xi\rangle$ for all $x$ in the algebraic
+Taking finite linear combinations, we get that $\omega(x) = \langle \xi, \pi(x) \xi\rangle$ for all $x$ on the algebraic
 tensor product $A_1 \otimes A_2.$ This shows that $\omega$ is positive in $A_{\max}.$ Also, $\pi_1(A_1) \xi_1$
 is dense in $\mathcal{H}_1,$ $\pi_2(A_2) \xi_2$ is dense in $\mathcal{H}_2.$ So their tensor product $(\pi_1(A_1) \xi_1 )
 \otimes (\pi_2(A_2) \xi_2) = \pi(A_1 \otimes A_2) \xi$ is dense in $\mathcal{H}.$ Thus, $\xi$ is cyclic under $\pi.$
@@ -241,13 +243,13 @@ $\pi_1 = \oplus_i \pi_{1,i}$ and $\pi_2 = \oplus_{j} \pi_{2,j}.$
 Then
 $$\lVert (\pi_1 \otimes \pi_2)(x) \rVert
 = \sup_{i,j} \{ (\pi_{1,j} \otimes \pi_{2,j} ) (x) \}.$$
-So that
+Since $\lVert \oplus_{j} a_i \rVert = \sup \{ \lVert a_i \rVert \colon i \},$
+we can rewrite
 \begin{align*}
 	{} \lVert x \rVert_{\min} 
-	={} \sup \lVert (\pi_1 \otimes \pi_2) (x) \rVert,
+	={} \sup \{ \lVert (\pi_1 \otimes \pi_2) (x) \rVert \colon
+\pi \text{ is a cyclic representation of } A_1 \otimes A_2. \}
 \end{align*}
-where the sup is taken over cyclic representations only.
-\textcolor{red!60!black}{proof is incomplete.}
 Let $\xi_i$ be the cyclic vector for $\pi_i,$ $i=1,2.$
 Replacing $\pi_1,$ respectively $\pi_2$ with $\omega_1, \in (A_1^\ast)_+,$ respectively $\omega_2
 \in (A_2^\ast)_+,$ we get
@@ -262,13 +264,184 @@ Replacing $\pi_1,$ respectively $\pi_2$ with $\omega_1, \in (A_1^\ast)_+,$ respe
 	={}& \sup \{ \frac{(\omega_1 \otimes \omega_2) ( a^\ast x^\ast x a) }
 	{(\omega_1 \otimes \omega_2)(x^\ast x)} \colon a \in A_1 \otimes A_2 \}
 \end{align*}
+\end{proof}
+
+
+\section{Takesaki's Theorem}
+\subsection{States on $A_1 \otimes A_2$}
+
+\begin{proposition}
+	If $\omega_1$ is a positive linear functional on $A_1$, and 
+	$\omega_2$ is a positive linear functional on $A_2,$ then $\omega_1 \otimes
+	\omega_2$ is positive on $A_1 \otimes A_2.$
+\end{proposition}
+\begin{proof}
+	Suppose $x = \sum_{i=1}^{n} x_{1,i} \otimes x_{2,i}$ is in $A_1 \otimes
+	A_2.$ Then,
+\begin{align*}
+	{}& (\omega_1 \otimes \omega_2) (x^\ast x) \\
+	={}& (\omega_1 \otimes \omega_2) (\sum_{i,j=1}^{n} 
+	(x_{1,i} \otimes x_{2,i} )^\ast \otimes (x_{1,i} \otimes x_{2,i} ) \\
+	={}& (\omega_1 \otimes \omega_2) (\sum_{i,j=1}^{n} 
+	(x_{1,i}^\ast x_{1,i} \otimes x_{2,i}^\ast \otimes x_{2,i} ) \\
+	={}& \sum_{i,j=1}^{n} 
+	\omega_1 (x_{1,i}^\ast x_{1,i}) \omega_2 (x_{2,i}^\ast x_{2,i}).
+\end{align*}
+For complex numbers $\lambda_1, \dotsc, \lambda_n,$ we have
+\begin{align*}
+	{}& \sum_{i,j=1}^{n} \overline{\lambda_i} \lambda_j \omega_2 (x_{2,i}^\ast x_{2,j} )  \\
+{}&= \omega_2( \sum_{i,j=1}^{n} \overline{\lambda_i} \lambda_j x_{2,i}^\ast x_{2,j} ) \\
+{}&= \omega_2( ( \sum_{i=1}^{n} {\lambda_i}  x_{2,i})^\ast ( \sum_{j=1}^{n} \lambda_j x_{2,j}) )  \geq 0.
+\end{align*}
+This means that the matrix $A = [\omega_2(x_{2,i} ^\ast x_{2,j} ]$ is positive semidefinite and has a representation $A = \sum_{l=1}^{n} [\overline{r_{i,l}} r_{j,l} ],$
+where $[\overline{r_{l,i}} r_{l,j} ]$ is a scaling of some rank one projection 
+onto the subspace spanned by $(r_{l,1}, \dotsc, r_{l,n} ).$  
+This means
+\begin{align*}
+	{}& (\omega_1 \otimes \omega_2) (x^\ast x) \\
+	={}&  \sum_{i,j=1}^{n} \omega_1(x_{1,i}^\ast x_{2,j}) \sum_{l=1}^{n} \overline{r_{l,i}} r_{l,j} \\
+	={}& \sum_{l=1}^{n} \omega_1(\sum_{i,j=1}^{n} \overline{r_{l,i}} r_{l,j} 
+	x_{1,i}^\ast x_{2,j} ) \\
+	={}& \sum_{l=1}^{n} \omega_1( (\sum_{i=1}^{n} r_{l,i} x_{1,i} )^\ast
+	( \sum_{j=1}^{n} r_{l,j} x_{2,j})) \geq 0.
+\end{align*}
 
 \end{proof}
+
+\begin{notation}
+	The set of all Pure states on $A_1$ is denoted by $P(A_1).$
+\end{notation}
+
+\begin{notation}
+	Given a  cstar norm $\beta$ on $A_1 \otimes A_2$,
+	we denote
+	$$ S_ \beta = \{ ( \omega_1 \otimes \omega_2) \colon
+		\omega_1 \otimes \omega_2 \text{ is continuous in the }
+	\beta \text{ norm }. \} $$
+\end{notation}
+
+\begin{lemma}
+	The set $S_\beta$ is a closed subset of $P(A_1) \times P(A_2)$
+	with the product $\text{weak}^\ast$ topology.
+\end{lemma}
+
+\begin{proof}
+	Let $\omega_{1,\alpha} \otimes \omega_{2,\alpha}$ be a net in $S_\beta$
+	such that $\lim_{\alpha} \omega_{1,\alpha} (x_1) = \omega_{1} (x_1)$
+	for each $x_1$ in $A_1,$ and $\lim_{\alpha} \omega_{2,\alpha} (x_2)
+	= \omega_{2} (x)2$ for each $x_2$ in $A_2.$
+	For a fixed $x = \sum_{l=1}^{k} x_{1,l} \otimes x_{2,l}$ in $A_1 \otimes A_2,$ 
+\begin{align*}
+	\omega_1 \otimes \omega_2 (x)
+	={}& \omega_1 \otimes \omega_2 
+	(\sum_{l=1}^{k} x_{1,l} \otimes x_{2,l}) \\
+	={}& \sum_{l=1}^{k} \omega_1(x_{1,l}) \omega_2(x_{2,l}) \\
+	={}& \sum_{l=1}^{k} \lim_i \omega_{1,\alpha} (x_{1,l}) \omega_{2,\alpha} \lim_i (x_{2,l}) \\
+	={}& \sum_{l=1}^{k} \lim_i (\omega_{1,\alpha} \otimes \omega_{2,\alpha} )
+	(x_{1,l} \otimes x_{2,l}) \\
+	={}& \lim_{\alpha} (\omega_{1,\alpha} \otimes \omega_{2,\alpha} ) (x) \\
+\end{align*}
+For $x$ in $A_1 \otimes A_2,$ we have $\lvert (\omega_{1,\alpha} \otimes \omega_{2,\alpha}) (x) \rvert \leq \lVert x \rVert_{\beta}$ for each $i.$ So, $\lvert \omega_1 \otimes \omega_2 (x) \rvert \leq \lVert x \rVert_{\beta}.$
+This means $\omega_1 \otimes \omega_2$ is also in $S_\beta.$
+\end{proof}
+
+\begin{theorem}
+    If $A_2$ is abelian, then the $\min$ norm and the $\lambda$ norm coincide.
+\end{theorem}
+\begin{proof}
+	Let $A_2$ be $C(\Omega)$ for some compact Hausdorff Space $\Omega.$
+	For
+	\[
+		x = \sum_{i=1}^{n} x_{1,i} \otimes x_{2,i}
+	\]
+	in $A_1 \otimes A_2,$
+	define
+	$\Lambda  (x) \colon \Omega \to A_1$
+	by
+	\[
+		\Lambda (x) (\omega) = \sum_{i=1}^{n} x_{2,i}(\omega) x_{1,i}.
+	\]
+	The space $C(\Omega, A_1$ of continuous functions taking values in $A_1$ 
+	is equipped with the $\text{C}^\ast$\nobreakdash-algebra structure
+\begin{gather*}
+	\lVert a \rVert = \sup\{ \lvert a(\omega) \rvert \colon 
+	\omega \in \Omega \} \\
+	(\lambda a + \mu b)(\omega) = \lambda a(\omega) + \mu b(\omega) \\
+	(ab) (\omega) = a(\omega) b(\omega) \\
+	a^\ast (\omega) = (a(\omega))^\ast
+\end{gather*}
+for $a,b$ in $C(\Omega, A_1),$ $\lambda, \mu$ in $\mathbb{C}$
+and $\omega$ in $\Omega.$
+For $x = \sum_{i=1}^{n} x_{1,i} \otimes x_{2,i}$ in $A_1 \otimes A_2,$
+we have
+\begin{align*}
+	\lVert \Lambda (x) \rVert
+	={}& \sup \{ \lVert \sum_{i=1}^{n} x_{2,i}(\omega) x_{1,i} \rVert
+	\colon \omega \in \Omega \} \\
+	={}& \sup \{ \lvert \sum_{i=1}^{n} x_{2,i}(\omega) \phi(x_{1,i}) \rvert
+	\colon \phi \in A_1^\ast, \, \lVert \phi \rVert \leq 1, \, \omega \in \Omega \} \\
+	={}& \sup \{ \lVert \Lambda( \sum_{i=1}^{n} \phi(x_{1,i}) x_{2,i})  \rVert
+	\colon \phi \in A_1^\ast, \, \lVert \phi \rVert \leq 1, \, \omega \in \Omega \} \\
+	={}& \sup \{ \lvert  \sum_{i=1}^{n} \phi(x_{1,i}) \psi( x_{2,i})  \rvert
+	\colon \phi \in A_1^\ast, \, \lVert \phi \rVert \leq 1 \} \\
+	={}& \sup \{ \lvert   \phi \otimes \psi ( \sum_{i=1}^{n} x_{1,i} \otimes x_{2,i})  \rvert
+	\colon \phi \in A_1^\ast, \, \lVert \phi \rVert \leq 1 \,
+\psi \in A_2^\ast, \, \lVert \psi \rVert \leq 1 \} \\
+	={}& \lVert x \rVert_{\lambda} .
+\end{align*}
+Regard each $\omega$ as a one dimensional representation of $A_2$
+and let $\pi_1$ be a faithful representation of $A_1.$
+Then
+\begin{align*}
+	{}& \lVert x \rVert_\Lambda \\
+	={}& \sup \{ \lVert \sum_{i=1}^{n} x_{2,i}(\omega) x_{1,i} \rVert
+	\colon \omega \in \Omega \} \\
+	={}& \sup \{ \lVert \pi_1( \sum_{i=1}^{n} x_{2,i}(\omega) x_{1,i} ) \rVert
+	\colon \omega \in \Omega \} \\
+	={}& \sup \{ \lVert (\pi_1 \otimes \pi_{\omega}) (\sum_{i=1}^{n} x_{1,i} \otimes x_{2,i} ) \rVert
+	\colon \omega \in \Omega \} \\
+	={}& \lVert (\pi_1 \otimes \oplus_{\omega \in \Omega} \pi_{\omega} )
+	(\sum_{i=1}^{n} x_{1,i} \otimes x_{2,i} \rVert \\
+	={}& \lVert x \rVert_{\min}.
+\end{align*}
+\end{proof}
+
+\appendix
+
+\section{Representations}
+\begin{theorem}
+	Show that a $\ast$\nobreakdash-homomorphism $\pi \colon M_n(A) \to
+	B(\mathcal{H} $ can be expressed as
+	$\pi( [a_{i,j}]) = [\rho(a_{i,j})]$ where $\rho \colon A \to B(\mathcal{K})$
+	is a $\ast$\nobreakdash-homomorphism of $A$ on the Hilbert Space $\mathcal{K}$
+	which satisfies $\mathcal{H} = \oplus_{j=1}^n \mathcal{K}.$
+\end{theorem}
+
+\begin{proof}
+	\dots
+\end{proof}
+
+Multiplication is well defined.
+
 % tensor products of ucp maps
 % functoriality and universal property
 
+
+\section{Questions for later}
+Questions I thought of while reading the text, scheduled to be ansered later.
+
+What is uniform closure \cite[proof of Prop 4.13 page 211]{takesaki79}?
+
+Why are we interested in $S_\beta?$ Is $\omega_1 \otimes \omega_2$ even positive?
+
+Is the weak star topology weaker than weak topology?
+
+What is a nondegenerate representation? Is the image dense or closed?
+
+If $u,$ respectively $v,$ is a unitary in $A_1,$ respectively $A_2,$ then
+is $\lVert (u \otimes v) x (u^\ast \otimes v^\ast) \rVert = \lVert x \rVert?$
 \bibliographystyle{plain}
-\bibliography{../notes/my_refs}
+\bibliography{refs}
 
 \end{document}
 
